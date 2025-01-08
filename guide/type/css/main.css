@@ -1,0 +1,5 @@
+@charset "utf-8";
+
+/* 공통 */
+html, body, div, h1, h2, h3, h4, h5, h6, p, ul, ol, li, dl, dt, dd, span, form, fieldset, input, select, label, textarea, table, caption, thead, tfoot, tbody, tr, th, td{word-break:keep-all;}
+.hidden{position:absolute;top:0;left:0;width:1px;height:1px;margin:1px;border:none;overflow:hidden;clip:rect(0, 0, 0, 0);}

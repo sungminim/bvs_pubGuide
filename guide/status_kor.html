@@ -1,0 +1,625 @@
+<!DOCTYPE jsp PUBLIC "-//W3C//DTD Xjsp 1.0 Transitional//EN" "http://www.w3.org/TR/xjsp1/DTD/xjsp1-transitional.dtd">
+<jsp xmlns="http://www.w3.org/1999/xjsp" xml:lang="ko" lang="ko">
+
+	<head>
+		<meta http-equiv="content-type" content="text/jsp; charset=utf-8" />
+		<title>작업현황판</title>
+	</head>
+
+	<body>
+		<h1>프로젝트명</h1>
+        <div class="status_menu menu01">
+            <ul>
+                <li class="on"><a href="status_kor.html" target="_self">현황판</a></li>
+            </ul>
+        </div>
+
+		<div class="making_guide">
+			<strong>[작업 참고사항]</strong>
+			<ul>
+				<li style="color:red">
+					<strong>* 작업기준</strong> : 국문을 기준<br />
+				</li>
+				<!-- <li>
+					<strong>* root/type 폴더</strong> : <br />
+					root/incFiles/*.* (각 type의 include 파일 폴더)<br />
+					root/jspFiles/*.* (각 type의 jsp(html) 파일 폴더)<br />
+					root/jspFiles/program/ : 프로그램 페이지(html) 폴더<br />
+					root/style_guide/ : 스타일가이드,게시판,통합검색 등 공통컨텐츠<br />
+					root/type/common/*.* (공통파일, 가이드파일)<br />
+					root/type/KOR_A/*.* (국문 css, img, js 파일)<br />
+					root/type/IPSI_A/*.* (입학 css, img, js 파일)<br />
+					root/type/AFFI_A/*.* (기관 css, img, js 파일)<br />
+					root/type/AFFI_B/*.* (혁신지원 css, img, js 파일)<br />
+					root/type/AFFI_C/*.* (성과공유 css, img, js 파일)<br />
+					root/type/DEPT_A/*.* (학과 css, img, js 파일)<br />
+					root/type/ENG_A/*.* (영문 css, img, js 파일)<br />
+					root/type/admin/*.* (CMS css, img, js, sample_source 파일)<br />
+				</li> -->
+				<li style="color:red">
+					<strong>* 퍼블상태표기</strong> : x : 삭제 / △ : 보류,협의 / ○ : 부분완료 / ● : 완료
+				</li>
+				<li>
+					<strong>* 국문(KOR_A) / 입학(IPSI_A) / 기관(AFFI_A) / 혁신지원(AFFI_B) / 학과(DEPT_A ) / 영문(ENG_A) / CMS(admin) 폴더 사용</strong>
+				</li>
+				<li>
+					root/incFiles/* : 헤더, 푸터, 메뉴 등의 공통 파일 <br />
+					root/jspFiles/* : 1depth 기준 폴더 생성 후 콘텐츠 페이지 <br />
+					root/jspFiles/program/* : 프로그램 페이지 <br />
+					root/jspFiles/board/* : 게시판 페이지 <br />
+					root/style_guide/* : 스타일 가이드(html파일) <br />
+					root/type/img/common/* : 전체 페이지 관련 공통 이미지 <br />
+					root/type/img/layout/* : 헤더, 푸터 등 공통 레이아웃 관련 이미지 <br />
+					root/type/img/main/* : 메인페이지 관련 이미지 <br />
+					root/type/img/contents/* : 콘텐츠 페이지 관련 이미지(1depth 기준 폴더 생성 후 이미지 저장) <br />
+					root/type/img/board/* : 게시판 관련 이미지 <br />
+					root/type/css/board.css : 게시판 관련 css <br />
+					root/type/css/main.css : 메인페이지 관련 css <br />
+					root/type/css/common.css : 컴포넌트 등 웹스타일가이드 관련 css <br />
+					root/type/css/layout.css : 헤더, 푸터, 메뉴, 팝업 등 공통 레이아웃 관련 css <br />
+					root/type/css/contA.css : 나머지 페이지 css <br />
+					root/type/js/main.js : 메인 관련 스크립트 <br />
+					root/type/js/layout.js : 레이아웃 관련 공통 스크립트 <br />
+					root/type/js/cont.js : 나머지 페이지 관련 개별 스크립트
+				</li>
+			</ul>
+		</div>
+
+		<div class="making_guide">
+			<strong>[구분표]</strong>
+			<ul>
+				<li>
+					<strong class="program">***.jsp</strong> : <span style="color:red">프로그램페이지</span>
+				</li>
+			</ul>
+		</div>
+
+		<table>
+			<caption>가이드<p class="totalpage"></p></caption>
+			<colgroup>
+				<col width="12%">
+				<col width="12%">
+				<col width="14%">
+				<col width="10%">
+				<col width="15%">
+				<col width="5%">
+				<col width="5%">
+				<col width="*">
+			</colgroup>
+			<thead>
+				<tr>
+					<th scope="col">대분류</th>
+					<th scope="col">중분류</th>
+					<th scope="col">소분류</th>
+					<th scope="col">소분류 이하</th>
+					<th scope="col">file</th>
+					<th scope="col" title="△ :대기 / ○ :부분완료 / ● :완료">stat</th>
+					<th scope="col" title="yyyy-mm-dd">date</th>
+					<th scope="col">note</th>
+				</tr>
+			</thead>
+			<tbody>
+				<!-- Layout -->
+				<tr>
+					<td class="tit">웹스타일가이드</td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td class="file"><a target="_blank" href="styleGuide/styleGuide.html">styleGuide.html</a></td>
+					<td class="stat">○</td>
+					<td class="data"></td>
+					<td class="note"></td>
+				</tr>
+				<tr>
+					<td class="tit" rowspan="4">레이아웃</td>
+					<td>메인페이지</td>
+					<td></td>
+					<td></td>
+					<td class="file"><a href="#" target="_blank">index.jsp</a></td>
+					<td class="stat"></td>
+					<td class="data"></td>
+					<td class="note"></td>
+				</tr>
+				<tr>
+					<td>메인팝업</td>
+					<td></td>
+					<td></td>
+					<td class="file"><a href="jspFiles/index_popup.jsp" target="_blank">index_popup.jsp</a></td>
+					<td class="stat">○</td>
+					<td class="data"></td>
+					<td class="note"></td>
+				</tr>
+				<tr>
+					<td rowspan="2">서브페이지</td>
+					<td>좌측 메뉴 있는 경우</td>
+					<td></td>
+					<td class="file"><a href="jspFiles/sub.jsp" target="_blank">sub.jsp</a></td>
+					<td class="stat">○</td>
+					<td class="data"></td>
+					<td class="note"></td>
+				</tr>
+				<tr>
+					<td>좌측 메뉴 없는 경우</td>
+					<td></td>
+					<td class="file"><a href="jspFiles/sub2.jsp" target="_blank">sub2.jsp</a></td>
+					<td class="stat">○</td>
+					<td class="data"></td>
+					<td class="note"></td>
+				</tr>
+				<tr>
+					<td class="tit" rowspan="21">게시판</td>
+					<td rowspan="3">일반</td>
+					<td>목록</td>
+					<td>기본형</td>
+					<td class="file"><a href="jspFiles/board/board_default_list.jsp" target="_blank">board_default_list.jsp</a></td>
+					<td class="stat">○</td>
+					<td class="data"></td>
+					<td class="note"></td>
+				</tr>
+				<tr>
+					<td>상세</td>
+					<td></td>
+					<td class="file"><a href="jspFiles/board/board_default_view.jsp" target="_blank">board_default_view.jsp</a></td>
+					<td class="stat">○</td>
+					<td class="data"></td>
+					<td class="note"></td>
+				</tr>
+				<tr>
+					<td>등록</td>
+					<td></td>
+					<td class="file"><a href="jspFiles/board/board_default_write.jsp" target="_blank">board_default_write.jsp</a></td>
+					<td class="stat">○</td>
+					<td class="data"></td>
+					<td class="note"></td>
+				</tr>
+				<tr>
+					<td rowspan="5">갤러리</td>
+					<td rowspan="3">목록</td>
+					<td>썸네일형</td>
+					<td class="file"><a href="jspFiles/board/gallery_default_list.jsp" target="_blank">gallery_default_list.jsp</a></td>
+					<td class="stat">○</td>
+					<td class="data"></td>
+					<td class="note"></td>
+				</tr>
+				<tr>
+					<td>목록 상세형</td>
+					<td class="file"><a href="jspFiles/board/gallery_default_list2.jsp" target="_blank">gallery_default_list2.jsp</a></td>
+					<td class="stat">○</td>
+					<td class="data"></td>
+					<td class="note"></td>
+				</tr>
+				<tr>
+					<td>목록 웹진</td>
+					<td class="file"><a href="jspFiles/board/webzine_default_list.jsp" target="_blank">webzine_default_list.jsp</a></td>
+					<td class="stat">○</td>
+					<td class="data"></td>
+					<td class="note"></td>
+				</tr>
+				<tr>
+					<td>상세</td>
+					<td></td>
+					<td class="file"><a href="jspFiles/board/gallery_default_view.jsp" target="_blank">gallery_default_view.jsp</a></td>
+					<td class="stat">○</td>
+					<td class="data"></td>
+					<td class="note">일반형 게시판 상세와 동일하게 구성됩니다.</td>
+				</tr>
+				<tr>
+					<td>등록</td>
+					<td></td>
+					<td class="file"><a href="jspFiles/board/gallery_default_write.jsp" target="_blank">gallery_default_write.jsp</a></td>
+					<td class="stat">○</td>
+					<td class="data"></td>
+					<td class="note"></td>
+				</tr>
+				<tr>
+					<td rowspan="4">동영상</td>
+					<td rowspan="2">목록</td>
+					<td>썸네일형</td>
+					<td class="file"><a href="jspFiles/board/video_default_list.jsp" target="_blank">video_default_list.jsp</a></td>
+					<td class="stat">○</td>
+					<td class="data"></td>
+					<td class="note"></td>
+				</tr>
+				<tr>
+					<td>목록 상세형</td>
+					<td class="file"><a href="jspFiles/board/video_default_list2.jsp" target="_blank">video_default_list2.jsp</a></td>
+					<td class="stat">○</td>
+					<td class="data"></td>
+					<td class="note"></td>
+				</tr>
+				<tr>
+					<td>상세</td>
+					<td></td>
+					<td class="file"><a href="jspFiles/board/video_default_view.jsp" target="_blank">video_default_view.jsp</a></td>
+					<td class="stat">○</td>
+					<td class="data"></td>
+					<td class="note">영상+자막영역을 제외하고 일반게시판 상세와 동일하게 구성됩니다.</td>
+				</tr>
+				<tr>
+					<td>등록</td>
+					<td></td>
+					<td class="file"><a href="jspFiles/board/video_default_write.jsp" target="_blank">video_default_write.jsp</a></td>
+					<td class="stat">○</td>
+					<td class="data"></td>
+					<td class="note"></td>
+				</tr>
+				<tr>
+					<td>FAQ</td>
+					<td>목록</td>
+					<td></td>
+					<td class="file"><a href="jspFiles/board/faq_default_list.jsp" target="_blank">faq_default_list.jsp</a></td>
+					<td class="stat">○</td>
+					<td class="data"></td>
+					<td class="note"></td>
+				</tr>
+				<tr>
+					<td rowspan="2">Q&A</td>
+					<td>목록</td>
+					<td></td>
+					<td class="file"><a href="jspFiles/board/qna_default_list.jsp" target="_blank">qna_default_list.jsp</a></td>
+					<td class="stat">○</td>
+					<td class="data"></td>
+					<td class="note"></td>
+				</tr>
+				<tr>
+					<td>상세</td>
+					<td></td>
+					<td class="file"><a href="jspFiles/board/qna_default_view.jsp" target="_blank">qna_default_view.jsp</a></td>
+					<td class="stat">○</td>
+					<td class="data"></td>
+					<td class="note"></td>
+				</tr>
+			</tbody>
+		</table>
+
+		<table>
+			<caption>컨텐츠</caption>
+			<colgroup>
+				<col width="12%">
+				<col width="12%">
+				<col width="14%">
+				<col width="10%">
+				<col width="10%">
+				<col width="15%">
+				<col width="5%">
+				<col width="*">
+			</colgroup>
+			<thead>
+				<tr>
+					<th scope="col">1depth</th>
+					<th scope="col">2depth</th>
+					<th scope="col">3depth</th>
+					<th scope="col">Tab</th>
+					<th scope="col">속성</th>
+					<th scope="col">file</th>
+					<th scope="col" title="△ :대기 / ○ :부분완료 / ● :완료">stat</th>
+					<th scope="col">note</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td class="tit"></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td class="file"><a href="#" target="_blank"></a></td>
+					<td class="stat"></td>
+					<td class="note"></td>
+				</tr>
+			</tbody>
+
+		</table>
+<style type="text/css">
+	@import url('https://fonts.googleapis.com/css?family=Noto+Sans+KR:300,400,500,700&amp;subset=korean');
+	@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap');
+
+	* {
+		margin: 0;
+		padding: 0;
+		font-size: 13px;
+		font-family:'Roboto','Noto Sans KR',굴림,Gulim,돋움,Dotum,Sans-serif;
+		color: #666
+	}
+
+	ol,
+	ul {
+		list-style: none;
+	}
+
+	strong {font-weight:500}
+
+	a {
+		color: #27e;
+		text-decoration: none;
+	}
+
+	a:focus,
+	a:hover,
+	a:active {
+		text-decoration: underline;
+	}
+
+	body {
+		padding: 10px;
+	}
+
+	h1 {
+		padding-top:10px;
+		margin-bottom: 20px;
+		font-size: 26px;
+	}
+
+	h1 a {
+		font-size: 26px;
+		color: #666
+	}
+
+	.status_menu {
+		overflow: hidden;
+		width: 100%;
+		margin-bottom: 20px;
+		padding-bottom: 1px;
+	}
+
+	.status_menu li {
+		float: left;
+		width: 14.2%;
+		margin: 0 -1px -1px 0;
+	}
+
+	.status_menu.menu01 li {
+		width: 100%;
+	}
+
+	.status_menu.menu02 li {
+		width: 50%;
+	}
+
+	.status_menu.menu03 li {
+		width: 33.3%;
+	}
+
+	.status_menu.menu04 li {
+		width: 25%;
+	}
+
+	.status_menu.menu05 li {
+		width: 20%;
+	}
+
+	.status_menu.menu06 li {
+		width: 33.3%;
+	}
+
+	.status_menu.menu07 li {
+		width: 25%;
+	}
+
+	.status_menu.menu08 li {
+		width: 25%;
+	}
+
+	.status_menu li a {
+		display: block;
+		height: 30px;
+		border: 1px solid #999;
+		background: #fff;
+		font-size: 16px;
+		color: #999;
+		line-height: 30px;
+		text-align: center;
+	}
+
+	.status_menu li a:hover {
+		text-decoration: none;
+	}
+
+	.status_menu li.on a {
+		background: #999;
+		color: #fff;
+		font-weight: 500;
+	}
+
+	.totalpage {
+		text-align: right;
+		font-weight: 500;
+		font-size: 12px;
+	}
+
+	.down {
+		text-align: right;
+		font-weight: 500;
+		padding-top: 10px;
+	}
+
+	.down a {
+		font-size: 12px;
+		color: #666
+	}
+
+	.making_guide {
+		margin-bottom: 10px;
+	}
+
+	.making_guide>strong {
+		display: block;
+		margin-bottom: 7px;
+	}
+
+	.making_guide ul {
+		padding: 10px;
+		border: 1px solid #ddd;
+	}
+
+	.making_guide li {
+		overflow: hidden;
+		line-height: 18px;
+	}
+
+	.making_guide li+li {
+		margin-top: 5px;
+	}
+
+	.making_guide .order_main,
+	.making_guide .order_sub,
+	.making_guide .program {
+		display: inline-block;
+		padding: 2px 5px 0;
+		border: 1px solid #ddd;
+		vertical-align: top;
+	}
+
+	table {
+		width: 100%;
+		border-collapse: collapse;
+	}
+
+	table caption {
+		text-align: left;
+		font-weight: 500;
+		padding: 20px 5px 5px;
+	}
+
+	table th {
+		border: 1px solid #ddd;
+		padding: 7px 10px;
+		background: #f9f9f9;
+		font-size:14px;
+	}
+
+	table td {
+		height: 24px;
+		border: 1px solid #ddd;
+		padding: 7px 10px;
+		line-height: 20px;
+		word-break: break-all;
+		word-wrap: break-word;
+	}
+
+	table tr:hover td {
+		background: #f3ffff
+	}
+
+	table tr.gray td {
+		background: #f5f5f5;
+	}
+
+	table .stat,
+	table .data,
+	table .tit {
+		text-align: center;
+	}
+
+	table .line td {
+		border-top: 2px solid #999
+	}
+
+	.order_main {
+		background: #e2f0e8 !important;
+	}
+
+	.order_sub {
+		background: #fef4d7 !important;
+	}
+
+	.program {
+		background: #ffffcc !important;
+	}
+</style>
+
+<script type="text/javascript" src="type/js/jquery/jquery-3.5.1.min.js"></script>
+<script type="text/javascript">
+	jQuery.fn.stat = function (options) {
+		var settings = jQuery.extend({
+			total: '.totalpage',
+			title: 'caption',
+			content: 'table',
+			files: 'tbody tr',
+			stat: 'td.stat',
+			completed: '●',
+			index: 0,
+			openAll: true,
+			speed: 'fast',
+
+			total2: '.totalpage2',
+			files2: 'tbody td.order_yoo',
+			stat2: 'td.order_yoo+td.stat',
+
+			total3: '.totalpage3',
+			files3: 'tbody td.order_oh',
+			stat3: 'td.order_oh+td.stat',
+		}, options),
+			all_sections = this;
+		return this.each(function () {
+			var self = this,
+				$self = $(self),
+				title_text = [],
+				completed = 0;
+			self.section_title = $(settings.title, $self);
+			self.content = $(settings.content, $self);
+			self.files = $(settings.files, $self);
+			self.files.each(function () {
+				var stat = $(settings.stat, this);
+				stat.each(function () {
+					var text = $(this).text();
+					if (text && (text === settings.completed)) {
+						completed++;
+					}
+				});
+			});
+			title_text = [self.section_title.text(), '(', completed, '/', self.files.length, ')'];
+			self.section_title.text(title_text.join(''));
+
+			//total
+			var completedAll = 0;
+			var completedPer = 0;
+			$(settings.stat).each(function () {
+				var text = $(this).text();
+				if (text && (text == settings.completed)) {
+					completedAll++;
+					completedPer = Math.round((100 / $(settings.files).length) *
+						completedAll);
+				}
+			});
+			$(settings.total).text('[Total : ' + completedAll + '/' + $(settings.files).length +
+				'pages] [Progress : ' + completedPer + '%/' + '100%]');
+
+			//작업자01
+			var completedAll2 = 0;
+			var completedPer2 = 0;
+			$(settings.stat2).each(function () {
+				var text = $(this).text();
+				if (text && (text == settings.completed)) {
+					completedAll2++;
+					completedPer2 = Math.round((100 / $(settings.files2).length) *
+						completedAll2);
+				}
+			});
+			$(settings.total2).text('[Total : ' + completedAll2 + ' / ' + $(settings.files2)
+				.length +
+				'pages] [Progress : ' + completedPer2 + '% / ' + '100%]');
+
+			//작업자02
+			var completedAll3 = 0;
+			var completedPer3 = 0;
+			$(settings.stat3).each(function () {
+				var text = $(this).text();
+				if (text && (text == settings.completed)) {
+					completedAll3++;
+					completedPer3 = Math.round((100 / $(settings.files3).length) *
+						completedAll3);
+				}
+			});
+			$(settings.total3).text('[Total : ' + completedAll3 + ' / ' + $(settings.files3)
+				.length +
+				'pages] [Progress : ' + completedPer3 + '% / ' + '100%]');
+		});
+	};
+	$(document).ready(function () {
+		$('table').stat();
+	});
+</script>
+
+	</body>
+</jsp>
